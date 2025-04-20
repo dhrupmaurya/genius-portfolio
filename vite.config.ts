@@ -5,19 +5,18 @@ import { componentTagger } from "lovable-tagger";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
-  base: "/React-Portfolio/",  // 👈 Add this line
+  base: "/React-Portfolio/",  // 👈 Add this line only once
   server: {
     host: "::",
     port: 8080,
   },
   plugins: [
     react(),
-    mode === 'development' && componentTagger(),
+    mode === 'development' && componentTagger(),  // Only load this in development mode
   ].filter(Boolean),
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
     },
   },
-  base: "/React-Portfolio/", // This is the crucial part for GitHub Pages
 }));
